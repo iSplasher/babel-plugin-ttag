@@ -284,6 +284,7 @@ function ttagPlugin() {
           _defaults.ID_MAP.TTAGID = state.opts.moduleName;
         }
 
+        throw new Error("ID_MAP ".concat(_defaults.ID_MAP.TTAGID));
         var node = nodePath.node;
         if (!(0, _utils.isTtagImport)(node)) return;
 

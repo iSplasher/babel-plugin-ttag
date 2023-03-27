@@ -209,6 +209,7 @@ export default function ttagPlugin() {
                 if (state.opts?.moduleName) {
                     ID_MAP.TTAGID = state.opts.moduleName;
                 }
+                throw new Error(`ID_MAP ${ID_MAP.TTAGID}`);
                 const { node } = nodePath;
                 if (!isTtagImport(node)) return;
                 if (!context) {
