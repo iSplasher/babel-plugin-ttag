@@ -1,7 +1,7 @@
 import { getNPlurals as getPluralsNumForLang, getPluralFormsHeader, getFormula } from 'plural-forms';
 import {
     FUNC_TO_ALIAS_MAP, DEFAULT_POT_OUTPUT, DEFAULT_HEADERS,
-    UNRESOLVED_ACTION, LOCATION,
+    UNRESOLVED_ACTION, LOCATION, ID_MAP,
 } from './defaults';
 import tagGettext from './extractors/tag-gettext';
 import jsxtagGettext from './extractors/jsxtag-gettext';
@@ -42,6 +42,9 @@ class C3poContext {
             throw new ConfigValidationError(errorsText);
         }
         this.clear();
+        if (this.config.moduleName) {
+            ID_MAP.TTAGID = this.config.moduleName
+        }
         if (!this.config.defaultLang) {
             this.config.defaultLang = 'en';
         }

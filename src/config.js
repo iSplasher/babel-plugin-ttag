@@ -44,6 +44,7 @@ export const configSchema = {
         extractors: extractorsSchema,
         dedent: { type: 'boolean' },
         discover: { type: 'array' },
+        moduleName: { type: 'string' },
         defaultLang: { enum: getAvailLangs() },
         addComments: { oneOf: [{ type: 'boolean' }, { type: 'string' }] },
         sortByMsgid: { type: 'boolean' },

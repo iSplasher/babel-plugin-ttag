@@ -5,7 +5,7 @@ import generate from '@babel/generator';
 import tpl from '@babel/template';
 
 import {
-    DISABLE_COMMENT, TTAGID, TTAG_MACRO_ID, INTERNAL_TTAG_MACRO_ID,
+    DISABLE_COMMENT, ID_MAP, TTAG_MACRO_ID, INTERNAL_TTAG_MACRO_ID,
 } from './defaults';
 import { ValidationError, NoExpressionError } from './errors';
 
@@ -132,7 +132,7 @@ export function hasDisablingComment(node) {
 }
 
 export function isTtagImport(node) {
-    return node.source.value === TTAGID
+    return node.source.value === ID_MAP.TTAGID
         || node.source.value === TTAG_MACRO_ID
         || node.source.value === INTERNAL_TTAG_MACRO_ID;
 }
@@ -142,7 +142,7 @@ export function isTtagRequire(node) {
         && node.init.callee.name === 'require'
         && bt.isObjectPattern(node.id)
         && node.init.arguments.length === 1
-        && (node.init.arguments[0].value === TTAGID
+        && (node.init.arguments[0].value === ID_MAP.TTAGID
             || node.init.arguments[0].value === TTAG_MACRO_ID
             || node.init.arguments[0].value === INTERNAL_TTAG_MACRO_ID);
 }
