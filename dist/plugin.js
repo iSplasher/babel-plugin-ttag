@@ -278,6 +278,12 @@ function ttagPlugin() {
         });
       },
       ImportDeclaration: function ImportDeclaration(nodePath, state) {
+        var _state$opts;
+
+        if ((_state$opts = state.opts) === null || _state$opts === void 0 ? void 0 : _state$opts.moduleName) {
+          _defaults.ID_MAP.TTAGID = state.opts.moduleName;
+        }
+
         var node = nodePath.node;
         if (!(0, _utils.isTtagImport)(node)) return;
 
