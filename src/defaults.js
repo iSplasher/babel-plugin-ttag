@@ -41,8 +41,8 @@ export const UNRESOLVED_ACTION = {
 export const DISABLE_COMMENT = 'disable ttag';
 
 export const ID_MAP = {
-    TTAGID: 'ttag'
-}
+    TTAGID: 'ttag',
+};
 
 export const TTAG_MACRO_ID = 'ttag.macro';
 export const INTERNAL_TTAG_MACRO_ID = 'babel-plugin-ttag/dist/ttag.macro';

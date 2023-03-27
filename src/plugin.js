@@ -3,7 +3,7 @@ import fs from 'fs';
 import mkdirp from 'mkdirp';
 import path from 'path';
 
-import { ALIAS_TO_FUNC_MAP } from './defaults';
+import { ALIAS_TO_FUNC_MAP, ID_MAP } from './defaults';
 import { buildPotData, makePotStr } from './po-helpers';
 import { extractPoEntry, getExtractor } from './extract';
 import {
@@ -206,6 +206,9 @@ export default function ttagPlugin() {
                 });
             },
             ImportDeclaration: (nodePath, state) => {
+                if (state.opts?.moduleName) {
+                    ID_MAP.TTAGID = state.opts.moduleName;
+                }
                 const { node } = nodePath;
                 if (!isTtagImport(node)) return;
                 if (!context) {

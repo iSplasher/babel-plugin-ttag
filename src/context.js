@@ -43,7 +43,7 @@ class C3poContext {
         }
         this.clear();
         if (this.config.moduleName) {
-            ID_MAP.TTAGID = this.config.moduleName
+            ID_MAP.TTAGID = this.config.moduleName;
         }
         if (!this.config.defaultLang) {
             this.config.defaultLang = 'en';
